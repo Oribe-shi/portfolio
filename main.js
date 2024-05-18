@@ -13,29 +13,18 @@ function handleScroll() {
     let scroll = window.scrollY;
     let h = window.innerHeight;
 
-    for(let target of scrollTargets) {
-        //アニメーションさせたい要素の位置を取得
-        let pos = target.getBoundingClientRect().top + scroll;
-
-        //スクロール量 > アニメーションさせたい要素の位置 の真偽で表示方法を決める
-        if (scroll > pos - h + offset) {
-            target.classList.add("is-animated");
-        } else {
-            target.classList.remove("is-animated");
-        }
+    function updateAnimationForTargets(targets, className, condition) {
+        targets.forEach(target => {
+            if (condition(target)) {
+                target.classList.add(className);
+            } else {
+                target.classList.remove(className);
+            }
+        });
     }
 
-    for(let target of leftSlideTargets) {
-        //アニメーションさせたい要素の位置を取得
-        let pos = target.getBoundingClientRect().top + scroll;
-
-        //スクロール量 > アニメーションさせたい要素の位置 の真偽で表示方法を決める
-        if (scroll > pos - h + offset) {
-            target.classList.add("is-leftanimated");
-        } else {
-            target.classList.remove("is-leftanimated");
-        }
-    }
+    updateAnimationForTargets(scrollTargets, "is-animated", target => scroll > target.getBoundingClientRect().top + scroll - h + offset);
+    updateAnimationForTargets(leftSlideTargets, "is-leftanimated", target => scroll > target.getBoundingClientRect().top + scroll - h + offset);
 
     if (document.getElementById("tableOfContents").getBoundingClientRect().bottom < 0) {
         document.querySelector("#navigationMenu").classList.add("is-navigationMenu-animated");
@@ -70,28 +59,29 @@ function smoothScrollTo(height) {
 
 const offsetY = 70;
 
+function scrollToSection(sectionId) {
+    const targetHeight = document.getElementById(sectionId).offsetTop - offsetY;
+    smoothScrollTo(targetHeight);
+}
+
 function scrollToTop() {
-    smoothScrollTo(0);
+    scrollToSection("pageContainer");
 }
 
 function scrollToIntroduction() {
-    const targetheight = document.getElementById("sectionIntroduction1").offsetTop - offsetY;
-    smoothScrollTo(targetheight);
+    scrollToSection("sectionIntroduction1");
 }
 
 function scrollToSkills() {
-    const targetheight = document.getElementById("sectionIntroduction2").offsetTop - offsetY;
-    smoothScrollTo(targetheight);
+    scrollToSection("sectionIntroduction2");
 }
 
 function scrollToProjects() {
-    const targetheight = document.getElementById("sectionIntroduction3").offsetTop - offsetY;
-    smoothScrollTo(targetheight);
+    scrollToSection("sectionIntroduction3");
 }
 
 function scrollToContacts() {
-    const targetheight = document.getElementById("sectionIntroduction4").offsetTop - offsetY;
-    smoothScrollTo(targetheight);
+    scrollToSection("sectionIntroduction4");
 }
 
 const copytext = document.getElementById("copytext");
