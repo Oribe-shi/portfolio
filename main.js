@@ -37,6 +37,7 @@ function handleScroll() {
     while (true) {
         if (document.getElementById("Focus" + i) == null) break;
         let navigationMenutarget = document.getElementById("Focus" + i);
+        // 目次の要素の入れ替え
         if (document.getElementById("sectionIntroduction" + i).getBoundingClientRect().top < navigationMenutarget.getBoundingClientRect().bottom + menuoffset) {
             navigationMenutarget.classList.add("focus");
             if (beforetarget != null && navigationMenutarget != beforetarget) beforetarget.classList.remove("focus");
@@ -97,7 +98,7 @@ function copyToClipboard() {
 
     navigator.clipboard.writeText(text)
     .then(() => {
-        console.log("Text copied to clipboard");
+        console.log("テキストをクリップボードに保存しました");
     })
     .catch((error) => {
         console.error("Error in copying text: ", error);
@@ -124,6 +125,9 @@ function layoutSkillsList() {
         } else {
             targetelem.style.right = "0px";
         }
+                
+        console.log(`${i}番目のスキルの項目名を読み込んでいます...`);
+        
         i++;
         targetelem.style.top = document.getElementById("pageContainer").offsetWidth >= 800 ?
         240 * (Math.floor(i/2) - 1) + "px" : 30 * (Math.floor(i/2) - 1) + "vw";
@@ -140,6 +144,8 @@ function generateTableOfContents() {
     while (true) {
         let targetelem = document.getElementById("tableOfContents" + i);
         if (targetelem == null) break;
+        
+        console.log(`${i}番目の目次の項目名を読み込んでいます...`);
 
         let targettext = targetelem.textContent;
         Displaymenu.insertAdjacentHTML("beforeend",
@@ -154,6 +160,9 @@ generateTableOfContents();
 const detailButtons = document.querySelectorAll(".detailButton");
 
 detailButtons.forEach(function(element, index) {
+
+    if (!element) return console.error("制作物のボタンの読み込みに失敗しました");
+
     element.addEventListener("click", function() {
         console.log(element); // クリックされた要素
         console.log(index); // 要素のインデックス
