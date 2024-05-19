@@ -33,7 +33,7 @@ function handleScroll() {
     }
 
     let i = 1;
-    const menuoffset = 200;
+    const menuoffset = 450;
     while (true) {
         if (document.getElementById("Focus" + i) == null) break;
         let navigationMenutarget = document.getElementById("Focus" + i);
