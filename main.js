@@ -34,7 +34,7 @@ function handleScroll() {
 
     let i = 1;
     // 目次の切り替え高さの調整
-    const menuoffset = 450;
+    const menuoffset = 1000;
     while (true) {
         if (document.getElementById("Focus" + i) == null) break;
         let navigationMenutarget = document.getElementById("Focus" + i);
