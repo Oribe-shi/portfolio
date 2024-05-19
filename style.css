@@ -35,17 +35,20 @@ p a:hover {
 .contactdiv {
     width: 100%;
     aspect-ratio: 13/2;
+    margin: 0px;
 }
 
 .contactimg {
     height: 100%;
+    position: absolute;
+    left: 10%;
 }
 
 .account {
     font-size: 2.5vw;
     position: absolute;
     top: 50%;
-    left: 20%;
+    left: 32%;
     color: aliceblue;
     transform: scale(1) translateY(-50%);
     text-decoration: none;
@@ -360,7 +363,7 @@ iframe {
 }
 
 .leftscrollAni {
-    margin: 2px;
+    margin: 0px;
     transform: translate(-120%, 0%);
     transition: all 0.5s;
     &.is-leftanimated {
