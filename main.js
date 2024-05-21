@@ -126,8 +126,6 @@ function layoutSkillsList() {
         } else {
             targetelem.style.right = "0px";
         }
-                
-        console.log(`${i}番目のスキルの項目名を読み込んでいます...`);
         
         i++;
         targetelem.style.top = document.getElementById("pageContainer").offsetWidth >= 800 ?
@@ -145,8 +143,6 @@ function generateTableOfContents() {
     while (true) {
         let targetelem = document.getElementById("tableOfContents" + i);
         if (targetelem == null) break;
-        
-        console.log(`${i}番目の目次の項目名を読み込んでいます...`);
 
         let targettext = targetelem.textContent;
         Displaymenu.insertAdjacentHTML("beforeend",
@@ -165,8 +161,7 @@ detailButtons.forEach(function(element, index) {
     if (!element) return console.error("制作物のボタンの読み込みに失敗しました");
 
     element.addEventListener("click", function() {
-        console.log(element); // クリックされた要素
-        console.log(index); // 要素のインデックス
+
         modalContent.insertAdjacentHTML("afterbegin", '<iframe id="htmliframe" src="work_'+index+'.html"></iframe>');
         modalBackground.style.display = "block";
 

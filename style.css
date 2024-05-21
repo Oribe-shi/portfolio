@@ -11,7 +11,6 @@ body {
     position: relative;
     max-width: 800px;
     margin: auto;
-    
 }
 
 p a {
@@ -131,6 +130,7 @@ iframe {
 .subtitle {
     background-color: rgb(143, 143, 143);
     margin: 0px;
+    padding-left: 10px;
 }
 
 #tableOfContents {
@@ -259,6 +259,7 @@ iframe {
 .firstcommandLine {
     background-color: aliceblue;
     font-size: 20px;
+    padding-left: 10px;
 }
 
 #copyicon {
@@ -285,6 +286,7 @@ iframe {
     font-size: 14px;
     text-decoration: underline;
     text-decoration-color: aliceblue;
+    padding-left: 10px;
 }
 
 .tabtext {
