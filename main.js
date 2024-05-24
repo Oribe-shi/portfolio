@@ -98,9 +98,6 @@ function copyToClipboard() {
     const text = document.getElementById("commandtext").textContent;
 
     navigator.clipboard.writeText(text)
-    .then(() => {
-        console.log("テキストをクリップボードに保存しました");
-    })
     .catch((error) => {
         console.error("Error in copying text: ", error);
     });
