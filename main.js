@@ -159,7 +159,7 @@ detailButtons.forEach(function(element, index) {
 
     element.addEventListener("click", function() {
 
-        modalContent.insertAdjacentHTML("afterbegin", '<iframe id="htmliframe" src="works/work_'+index+'.html"></iframe>');
+        modalContent.insertAdjacentHTML("afterbegin", '<iframe id="htmliframe" src="work_'+index+'.html"></iframe>');
         modalBackground.style.display = "block";
 
         document.addEventListener("scroll", closeMenu);
